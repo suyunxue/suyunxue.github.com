@@ -1,0 +1,28 @@
+{% extends "_layout.njk" %}
+
+{% block title %}{{ __(page.title) }} | {{ config.title }}{% endblock %}
+
+{% block content %}
+<section class="categories" id="categories">
+  <div class="categories-container card">
+    <div class="categories-counter">
+      {% set visibleCategories = 0 %}
+      {% for cat in site.categories.toArray() %}
+      {% if cat.length %}
+      {% set visibleCategories = visibleCategories + 1 %}
+      {% endif %}
+      {% endfor %}
+      {% if visibleCategories > 1 %}
+      <p>{{ _p("categorycount.more", visibleCategories) }}</p>
+      {% elif visibleCategories == 1 %}
+      <p>{{ _p("categorycount.one", visibleCategories) }}</p>
+      {% else %}
+      <p>{{ __("categorycount.none") }}</p>
+      {% endif %}
+    </div>
+    <div class="categories-list">
+      {{ list_categories() }}
+    </div>
+  </div>
+</section>
+{% endblock %}
