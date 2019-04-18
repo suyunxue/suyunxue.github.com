@@ -38,3 +38,7 @@ Having trouble with Pages? Check out our [documentation](https://help.github.com
 
 ## 主题
 - https://github.com/AlynxZhou/hexo-theme-aria
+
+# hexo server
+
+# hexo g -d
